@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import {readFileSync, writeFileSync, existsSync} from 'fs';
 import {resolve} from 'path';
-import {execSync} from 'child_process';
 import deepmerge from 'deepmerge';
 
 export {deepmerge};
