@@ -1,0 +1,8 @@
+*.log
+node_modules
+core.node.*
+coverage
+build
+.theia
+.gitpod.yml
+tsconfig.tsbuildinfo

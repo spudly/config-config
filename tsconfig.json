@@ -1,0 +1,15 @@
+{
+  "include": [
+    "src/**/*"
+  ],
+  "compilerOptions": {
+    "outDir": "build",
+    "rootDir": "src",
+    "esModuleInterop": true,
+    "strict": true,
+    "target": "es2015",
+    "moduleResolution": "node",
+    "declaration": true,
+    "module": "commonjs"
+  }
+}
