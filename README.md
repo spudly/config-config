@@ -21,4 +21,4 @@ Requirements:
   - [x] add something to precommit to ensure package.json keys are sorted
   - [x] validate commit message on precommit (https://commitlint.js.org/)
   - [ ] refactor into one file, since some are difficult to separate
-  - [ ] make all options default to true
+  - [x] make all options default to true
