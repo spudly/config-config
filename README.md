@@ -2,6 +2,8 @@
 
 ## TODO: create this package
 
+## TODO: write this README
+
 Requirements:
 
 - [x] Adds husky & configures @spudly/configure to run on precommit, forcing
@@ -12,7 +14,7 @@ Requirements:
   - [x] lint-staged / prettier (if --prettier passed)
   - [x] jest (if --jest passed)
   - [x] github action (lint, test, semantic-release)
-  - [ ] accept an --all option to configure everything
+  - [x] accept an --all option to configure everything
   - [ ] LICENSE file
   - [ ] CONTRIBUTING file
   - [ ] README file

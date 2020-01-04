@@ -19,23 +19,26 @@ export type Options = {
   webpack: boolean;
   githubActions: boolean;
   commitlint: boolean;
+  sortPackageJson: boolean;
 };
 
 export const getOptions = (): Options => {
   const args = process.argv;
   const root = process.cwd();
   const confRoot = resolve(__dirname, '..');
+  const all = args.includes('--all');
   return {
     root,
     confRoot,
-    eslint: args.includes('--eslint'),
-    prettier: args.includes('--prettier'),
-    semanticRelease: args.includes('--semantic-release'),
-    typescript: args.includes('--typescript'),
-    jest: args.includes('--jest'),
-    webpack: args.includes('--webpack'),
-    githubActions: args.includes('--github-actions'),
-    commitlint: args.includes('--commitlint'),
+    eslint: all || args.includes('--eslint'),
+    prettier: all || args.includes('--prettier'),
+    semanticRelease: all || args.includes('--semantic-release'),
+    typescript: all || args.includes('--typescript'),
+    jest: all || args.includes('--jest'),
+    webpack: all || args.includes('--webpack'),
+    githubActions: all || args.includes('--github-actions'),
+    commitlint: all || args.includes('--commitlint'),
+    sortPackageJson: all || args.includes('--sort-package-json'),
   };
 };
 
@@ -73,8 +76,5 @@ export const mergeDeep = <T extends {[key: string]: any}>(
 
 export const hasPackageJson = (dir: string) =>
   existsSync(`${dir}/package.json`);
-
-export const createPackageJson = (dir: string) =>
-  execSync('npm init --yes', {cwd: dir});
 
 export {writeFileSync as writeFile};

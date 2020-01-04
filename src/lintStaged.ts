@@ -10,6 +10,9 @@ const configureLintStaged = (options: Options) => {
         'lint-staged': getVersion('lint-staged', options),
       },
       'lint-staged': {
+        'package.json': options.sortPackageJson
+          ? ['sort-package-json', 'prettier --write', 'git add']
+          : undefined,
         [options.typescript ? '*.{js,jsx,ts,tsx}' : '*.{js,jsx}']:
           options.prettier || options.eslint
             ? [

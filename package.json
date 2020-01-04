@@ -2,9 +2,88 @@
   "name": "@spudly/configure",
   "version": "0.1.0",
   "description": "## TODO: create this package",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "build/index.js",
   "bin": {
     "configure": "configure.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dogfood": "npm run build && node ./bin/configure.js --all",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "semantic-release": "semantic-release",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test && lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,htm,html,css}": [
+      "prettier --write",
+      "git add"
+    ],
+    "package.json": [
+      "sort-package-json",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "endOfLine": "lf",
+    "proseWrap": "always",
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "extends": "@spudly"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "build"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "!**/node_modules/**"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/build/",
+      "[.]config[.]js",
+      "/coverage/",
+      "[.]stories[.]"
+    ],
+    "globals": {
+      "ts-jest": {
+        "isolatedModules": true
+      }
+    },
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "build",
+      "[.]stories[.]"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
   },
   "dependencies": {
     "deepmerge": "^4.2.2"
@@ -23,78 +102,9 @@
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "semantic-release": "^15.14.0",
+    "sort-package-json": "^1.36.0",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
-  },
-  "scripts": {
-    "build": "tsc",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "dogfood": "npm run build && node ./bin/configure.js --eslint --typescript --prettier --jest --semantic-release --github-actions --commitlint",
-    "test": "jest",
-    "semantic-release": "semantic-release"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "eslintConfig": {
-    "extends": "@spudly"
-  },
-  "eslintIgnore": [
-    "node_modules",
-    "build"
-  ],
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,md,htm,html,css}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run test && lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testEnvironment": "node",
-    "globals": {
-      "ts-jest": {
-        "isolatedModules": true
-      }
-    },
-    "collectCoverageFrom": [
-      "**/*.ts",
-      "**/*.tsx",
-      "**/*.js",
-      "**/*.jsx",
-      "!**/node_modules/**"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/build/",
-      "[.]config[.]js",
-      "/coverage/",
-      "[.]stories[.]"
-    ],
-    "testPathIgnorePatterns": [
-      "build",
-      "[.]stories[.]"
-    ]
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "all",
-    "bracketSpacing": false,
-    "proseWrap": "always",
-    "endOfLine": "lf"
   },
   "release": {
     "plugins": [
@@ -108,11 +118,6 @@
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ]
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
     ]
   }
 }
