@@ -10,18 +10,26 @@
     "deepmerge": "^4.2.2"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/git": "^7.0.18",
     "@spudly/eslint-config": "^6.0.0",
+    "@types/jest": "^24.0.25",
     "@types/node": "^13.1.4",
     "eslint": "^6.8.0",
     "husky": "^3.1.0",
+    "jest": "^24.9.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
+    "semantic-release": "^15.14.0",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
   },
   "scripts": {
     "build": "tsc",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "dogfood": "npm run build && node ./bin/configure.js --eslint --typescript --prettier"
+    "dogfood": "npm run build && node ./bin/configure.js --eslint --typescript --prettier --jest --semantic-release --github-actions",
+    "test": "jest",
+    "semantic-release": "semantic-release"
   },
   "keywords": [],
   "author": "",
@@ -46,7 +54,57 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && lint-staged"
+      "pre-commit": "npm run lint && npm run test && lint-staged"
     }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "isolatedModules": true
+      }
+    },
+    "collectCoverageFrom": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "!**/node_modules/**"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/build/",
+      "[.]config[.]js",
+      "/coverage/",
+      "[.]stories[.]"
+    ],
+    "testPathIgnorePatterns": [
+      "build",
+      "[.]stories[.]"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": false,
+    "proseWrap": "always",
+    "endOfLine": "lf"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
   }
 }

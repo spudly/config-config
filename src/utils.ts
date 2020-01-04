@@ -13,10 +13,11 @@ export type Options = {
   confRoot: string;
   eslint: boolean;
   prettier: boolean;
-  'semantic-release': boolean;
+  semanticRelease: boolean;
   typescript: boolean;
   jest: boolean;
   webpack: boolean;
+  githubActions: boolean;
 };
 
 export const getOptions = (): Options => {
@@ -28,10 +29,11 @@ export const getOptions = (): Options => {
     confRoot,
     eslint: args.includes('--eslint'),
     prettier: args.includes('--prettier'),
-    'semantic-release': args.includes('--semantic-release'),
+    semanticRelease: args.includes('--semantic-release'),
     typescript: args.includes('--typescript'),
     jest: args.includes('--jest'),
     webpack: args.includes('--webpack'),
+    githubActions: args.includes('--github-actions'),
   };
 };
 

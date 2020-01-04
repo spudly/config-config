@@ -1,21 +1,5 @@
-import {
-  mergeDeep,
-  readJson,
-  writeFile,
-  writeJson,
-  getVersion,
-  Options,
-} from './utils';
+import {mergeDeep, readJson, writeJson, getVersion, Options} from './utils';
 import configureLintStaged from './lintStaged';
-
-const PRETTIER_RC = `module.exports = {
-  singleQuote: true,
-  trailingComma: 'all',
-  bracketSpacing: false,
-  proseWrap: 'always',
-  endOfLine: 'lf',
-};
-`;
 
 const configurePrettier = (options: Options) => {
   configureLintStaged(options);
@@ -25,9 +9,15 @@ const configurePrettier = (options: Options) => {
       devDependencies: {
         prettier: getVersion('prettier', options),
       },
+      prettier: {
+        singleQuote: true,
+        trailingComma: 'all',
+        bracketSpacing: false,
+        proseWrap: 'always',
+        endOfLine: 'lf',
+      },
     }),
   );
-  writeFile(`${options.root}/.prettierrc.js`, PRETTIER_RC);
 };
 
 export default configurePrettier;

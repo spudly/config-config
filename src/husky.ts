@@ -1,14 +1,10 @@
-import {
-  mergeDeep,
-  readJson,
-  writeFile,
-  writeJson,
-  getVersion,
-  Options,
-} from './utils';
+import {mergeDeep, readJson, writeJson, getVersion, Options} from './utils';
 
 const getHuskyConfig = (options: Options) => {
   const tasks = [];
+  if (options.root !== options.confRoot) {
+    tasks.push('npx configure');
+  }
   if (options.eslint) {
     tasks.push('npm run lint');
   }
@@ -22,15 +18,6 @@ const getHuskyConfig = (options: Options) => {
     },
   };
 };
-
-const PRETTIER_RC = `module.exports = {
-  singleQuote: true,
-  trailingComma: 'all',
-  bracketSpacing: false,
-  proseWrap: 'always',
-  endOfLine: 'lf',
-};
-`;
 
 const configureHusky = (options: Options) => {
   writeJson(
