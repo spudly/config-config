@@ -18,6 +18,7 @@ export type Options = {
   jest: boolean;
   webpack: boolean;
   githubActions: boolean;
+  commitlint: boolean;
 };
 
 export const getOptions = (): Options => {
@@ -34,6 +35,7 @@ export const getOptions = (): Options => {
     jest: args.includes('--jest'),
     webpack: args.includes('--webpack'),
     githubActions: args.includes('--github-actions'),
+    commitlint: args.includes('--commitlint'),
   };
 };
 

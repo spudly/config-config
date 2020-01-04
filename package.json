@@ -10,6 +10,8 @@
     "deepmerge": "^4.2.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
     "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/git": "^7.0.18",
     "@spudly/eslint-config": "^6.0.0",
@@ -27,7 +29,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "dogfood": "npm run build && node ./bin/configure.js --eslint --typescript --prettier --jest --semantic-release --github-actions",
+    "dogfood": "npm run build && node ./bin/configure.js --eslint --typescript --prettier --jest --semantic-release --github-actions --commitlint",
     "test": "jest",
     "semantic-release": "semantic-release"
   },
@@ -54,7 +56,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run test && lint-staged"
+      "pre-commit": "npm run lint && npm run test && lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "jest": {
@@ -105,6 +108,11 @@
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ]
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   }
 }

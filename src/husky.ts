@@ -15,6 +15,9 @@ const getHuskyConfig = (options: Options) => {
   return {
     hooks: {
       'pre-commit': tasks.join(' && '),
+      'commit-msg': options.commitlint
+        ? 'commitlint -E HUSKY_GIT_PARAMS'
+        : undefined,
     },
   };
 };

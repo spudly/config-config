@@ -12,9 +12,10 @@ Requirements:
   - [x] lint-staged / prettier (if --prettier passed)
   - [x] jest (if --jest passed)
   - [x] github action (lint, test, semantic-release)
+  - [ ] accept an --all option to configure everything
   - [ ] LICENSE file
   - [ ] CONTRIBUTING file
   - [ ] README file
-  - [ ] CHANGELOG file (handled by semantic-release)
+  - [x] CHANGELOG file (handled by semantic-release)
   - [ ] add something to precommit to ensure package.json keys are sorted
   - [ ] validate commit message on precommit (https://commitlint.js.org/)

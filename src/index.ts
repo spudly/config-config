@@ -6,6 +6,7 @@ import configurePrettier from './prettier';
 import configureJest from './jest';
 import configureGithubActions from './github-action';
 import configureSemanticRelease from './semantic-release';
+import configureCommitLint from './commitlint';
 
 const configure = () => {
   console.log('configuring');
@@ -37,6 +38,10 @@ const configure = () => {
   if (options.githubActions) {
     configureGithubActions(options);
     console.log('configured github actions');
+  }
+  if (options.commitlint) {
+    configureCommitLint(options);
+    console.log('configured commitlint');
   }
   console.log('finished');
 };
