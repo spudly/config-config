@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "dogfood": "npm run build && node ./bin/configure.js --all",
+    "dogfood": "npm run build && node ./bin/configure.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "semantic-release": "semantic-release",
     "test": "jest"
@@ -39,6 +39,7 @@
     ],
     "package.json": [
       "sort-package-json",
+      "prettier --write",
       "git add"
     ]
   },

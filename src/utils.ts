@@ -26,19 +26,18 @@ export const getOptions = (): Options => {
   const args = process.argv;
   const root = process.cwd();
   const confRoot = resolve(__dirname, '..');
-  const all = args.includes('--all');
   return {
     root,
     confRoot,
-    eslint: all || args.includes('--eslint'),
-    prettier: all || args.includes('--prettier'),
-    semanticRelease: all || args.includes('--semantic-release'),
-    typescript: all || args.includes('--typescript'),
-    jest: all || args.includes('--jest'),
-    webpack: all || args.includes('--webpack'),
-    githubActions: all || args.includes('--github-actions'),
-    commitlint: all || args.includes('--commitlint'),
-    sortPackageJson: all || args.includes('--sort-package-json'),
+    eslint: !args.includes('--no-eslint'),
+    prettier: !args.includes('--no-prettier'),
+    semanticRelease: !args.includes('--no-semantic-release'),
+    typescript: !args.includes('--no-typescript'),
+    jest: !args.includes('--no-jest'),
+    webpack: !args.includes('--no-webpack'),
+    githubActions: !args.includes('--no-github-actions'),
+    commitlint: !args.includes('--no-commitlint'),
+    sortPackageJson: !args.includes('--no-sort-package-json'),
   };
 };
 
