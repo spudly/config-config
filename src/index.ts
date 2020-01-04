@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {getOptions, hasPackageJson, writeFile} from './utils';
+import {getOptions, hasPackageJson, writeFile, readJson} from './utils';
 import configureEslint from './eslint';
 import configureTypescript from './typescript';
 import configurePrettier from './prettier';
@@ -8,11 +8,15 @@ import configureGithubActions from './github-action';
 import configureSemanticRelease from './semantic-release';
 import configureCommitLint from './commitlint';
 import configureSortPackageJson from './sortPackageJson';
+import {existsSync} from 'fs';
 
 const configure = () => {
   console.log('configuring');
   const options = getOptions();
-  if (!hasPackageJson(options.root)) {
+  let config;
+  try {
+    config = readJson(`${options.root}/package.json`);
+  } catch (error) {
     throw new Error(
       'Missing package.json file! Are you running this in a subfolder?',
     );
@@ -66,6 +70,10 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.`,
   );
+  if (!existsSync(`${options.root}/README.md`)) {
+    const {name} = readJson(`${options.root}/package.json`);
+    writeFile(`${options.root}/README.md`, `# ${name}`);
+  }
   console.log('finished');
 };
 
