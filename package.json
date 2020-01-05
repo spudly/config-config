@@ -1,8 +1,7 @@
 {
   "name": "@spudly/configure",
   "version": "0.1.0",
-  "description": "## TODO: create this package",
-  "keywords": [],
+  "description": "An opinionated npm package configurator",
   "license": "ISC",
   "author": "",
   "main": "build/index.js",
