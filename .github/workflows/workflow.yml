@@ -8,22 +8,31 @@ jobs:
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
+    env:
+      CI: true
     steps:
-      - name: Test w/ Node.js ${{matrix.node-version }}
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: setup node ${{matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ maxtrix.node-version }}
-      - run: |
-          npm ci
-          npm run lint
-          npm test
-        env:
-          CI: true
+      - name: install
+        run: npm ci
+      - name: build
+        run: npm build
+      - name: lint
+        run: npm run lint
+      - name: test
+        run: npm test
 
   release:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      CI: true
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -33,7 +42,3 @@ jobs:
       - run: |
           npm ci
           npx semantic-release
-        env:
-          CI: true
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
