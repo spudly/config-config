@@ -97,7 +97,7 @@ jobs:
       - name: setup node \${{matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: \${{ maxtrix.node-version }}
+          node-version: \${{ matrix.node-version }}
       - name: install
         run: npm ci
       - name: build
@@ -223,7 +223,9 @@ const getPackageConfig = (options: Options) => {
       ? {
           hooks: {
             'pre-commit': [
-              options.root !== options.confRoot ? 'npx configure' : undefined,
+              options.root === options.confRoot
+                ? 'npm run config-config'
+                : 'npx config-config',
               options.eslint ? 'npm run lint' : undefined,
               options.jest ? 'npm run test' : undefined,
               'lint-staged',

@@ -16,7 +16,7 @@ jobs:
       - name: setup node ${{matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ maxtrix.node-version }}
+          node-version: ${{ matrix.node-version }}
       - name: install
         run: npm ci
       - name: build
