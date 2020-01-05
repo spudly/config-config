@@ -1,6 +1,7 @@
 import {mkdirSync, readFileSync, writeFileSync, existsSync} from 'fs';
 import {resolve} from 'path';
 import deepmerge from 'deepmerge';
+import {execSync} from 'child_process';
 
 export {deepmerge};
 
@@ -9,6 +10,7 @@ export type Paths = {self: string; root: string};
 export type Options = {
   root: string;
   confRoot: string;
+  stage: boolean;
   eslint: boolean;
   prettier: boolean;
   semanticRelease: boolean;
@@ -29,6 +31,7 @@ export const getOptions = (): Options => {
   return {
     root,
     confRoot,
+    stage: args.includes('--stage'),
     eslint: !args.includes('--no-eslint'),
     prettier: !args.includes('--no-prettier'),
     semanticRelease: !args.includes('--no-semantic-release'),
@@ -110,7 +113,7 @@ jobs:
     yml += `
 
   release:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     env:
       CI: true
@@ -224,8 +227,8 @@ const getPackageConfig = (options: Options) => {
           hooks: {
             'pre-commit': [
               options.root === options.confRoot
-                ? 'npm run config-config'
-                : 'npx config-config',
+                ? 'npm run config-config -- --stage'
+                : 'npx config-config --stage',
               options.eslint ? 'npm run lint' : undefined,
               options.jest ? 'npm run test' : undefined,
               'lint-staged',
@@ -345,6 +348,12 @@ const configure = () => {
 
   if (!existsSync(`${options.root}/README.md`)) {
     writeFileSync(`${options.root}/README.md`, getReadme(packageConfig.name));
+  }
+  if (options.stage) {
+    execSync(
+      'git add package.json tsconfig.json .github/workflows/workflow.yml LICENSE README.md',
+      {cwd: options.root},
+    );
   }
 };
 
