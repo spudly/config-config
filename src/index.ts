@@ -120,14 +120,17 @@ jobs:
       GITHUB_TOKEN: \${{ secrets.GH_TOKEN }}
       NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: setup node
+        uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: |
-          npm ci
-          npx semantic-release
+      - name: install
+        run: npm ci
+      - name: release
+        run: npx semantic-release
 `;
   }
   return yml;
