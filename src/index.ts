@@ -117,8 +117,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: true
-      GITHUB_TOKEN: \${{ secrets.GH_TOKEN }}
-      NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
     steps:
       - name: checkout
         uses: actions/checkout@v1
@@ -130,6 +128,9 @@ jobs:
       - name: install
         run: npm ci
       - name: release
+        env:
+          GITHUB_TOKEN: \${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: \${{ secrets.NPM_TOKEN }}  
         run: npx semantic-release
 `;
   }
