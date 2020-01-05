@@ -1,16 +1,16 @@
 {
-  "name": "@spudly/configure",
+  "name": "@spudly/config-config",
   "version": "0.1.0",
   "description": "An opinionated npm package configurator",
   "license": "ISC",
   "author": "",
   "main": "build/index.js",
   "bin": {
-    "configure": "configure.js"
+    "config-config": "config-config.js"
   },
   "scripts": {
     "build": "tsc",
-    "dogfood": "npm run build && node ./bin/configure.js",
+    "dogfood": "npm run build && node ./bin/config-config.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "semantic-release": "semantic-release",
     "test": "jest"
