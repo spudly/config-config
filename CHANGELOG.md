@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/spudly/config-config/compare/v1.1.0...v1.2.0) (2020-01-06)
+
+
+### Features
+
+* **docs:** license, contributing, code of conduct ([9f4d13d](https://github.com/spudly/config-config/commit/9f4d13dbe957a75bead50efdd757abc21b9fa031))
+
 # [1.1.0](https://github.com/spudly/config-config/compare/v1.0.2...v1.1.0) (2020-01-06)
 
 
