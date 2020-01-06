@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/spudly/config-config/compare/v1.0.1...v1.0.2) (2020-01-06)
+
+
+### Bug Fixes
+
+* **github-actions:** use NODE_AUTH_TOKEN instead of NPM_TOKEN ([d193631](https://github.com/spudly/config-config/commit/d1936317e40b7a128009759bc64eafb05e7fd88f))
+
 ## [1.0.1](https://github.com/spudly/config-config/compare/v1.0.0...v1.0.1) (2020-01-06)
 
 
