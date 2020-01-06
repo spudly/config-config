@@ -106,6 +106,9 @@
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",

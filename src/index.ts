@@ -204,6 +204,9 @@ const getPackageConfig = (options: Options) => {
         : undefined,
       'sort-package-json': getVersion('sort-package-json', options),
     },
+    publishConfig: {
+      access: 'public',
+    },
     eslintConfig: options.eslint
       ? {
           extends: '@spudly',
