@@ -108,7 +108,7 @@ jobs:
       - name: lint
         run: npm run lint
       - name: test
-        run: npm test --coverage
+        run: npm test -- --coverage
       - name: codecov
         uses: codecov/codecov-action@v1
         with:
