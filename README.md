@@ -6,7 +6,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-[![codecov](https://codecov.io/gh/@spudly/config-config/branch/master/graph/badge.svg)](https://codecov.io/gh/@spudly/config-config)
+[![codecov](https://codecov.io/gh/spudly/config-config/branch/master/graph/badge.svg)](https://codecov.io/gh/spudly/config-config)
 
 Configures all the configurations for you.
 
