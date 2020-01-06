@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/spudly/config-config/compare/v1.0.2...v1.1.0) (2020-01-06)
+
+
+### Bug Fixes
+
+* **workflow:** generate coverage reports for codecov ([c230e81](https://github.com/spudly/config-config/commit/c230e811e5c24313a6142ba30182214ecfee1101))
+* **workflow:** syntax error ([55272e2](https://github.com/spudly/config-config/commit/55272e259e4841b9b852f6116ce4af5752cb2869))
+
+
+### Features
+
+* **workflow:** add codecov support ([8b23f07](https://github.com/spudly/config-config/commit/8b23f070b903a4e7962073f4384d1b3bfdd00af5))
+
 ## [1.0.2](https://github.com/spudly/config-config/compare/v1.0.1...v1.0.2) (2020-01-06)
 
 

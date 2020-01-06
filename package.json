@@ -1,6 +1,6 @@
 {
   "name": "@spudly/config-config",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "An opinionated npm package configurator",
   "license": "ISC",
   "author": "",
