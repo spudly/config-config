@@ -110,7 +110,7 @@ jobs:
       - name: test
         run: npm test --coverage
       - name: codecov
-      - uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v1
         with:
           token: \${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true`;
