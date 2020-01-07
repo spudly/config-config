@@ -4,6 +4,10 @@
   "description": "An opinionated npm package configurator",
   "license": "ISC",
   "author": "",
+  "files": [
+    "build",
+    "bin"
+  ],
   "main": "build/index.js",
   "bin": {
     "config-config": "bin/config-config.js"
@@ -12,6 +16,7 @@
     "build": "tsc",
     "config-config": "npm run build && node ./bin/config-config.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "prepare": "npm run build",
     "semantic-release": "semantic-release",
     "test": "jest"
   },

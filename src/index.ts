@@ -354,6 +354,7 @@ const getPackageConfig = (options: Options) => {
     publishConfig: {
       access: 'public',
     },
+    files: ['build', 'bin'],
     eslintConfig: options.eslint
       ? {
           extends: '@spudly',
