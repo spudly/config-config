@@ -1,7 +1,5 @@
 # @spudly/config-config
 
-<!-- badges-start -->
-
 <!-- prettier-ignore-start -->
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spudly/config-config/build?style=flat-square)
 [![Codecov](https://img.shields.io/codecov/c/github/spudly/config-config)](https://codecov.io/gh/spudly/config-config)
@@ -18,28 +16,33 @@
 [![Tweet](https://img.shields.io/twitter/url/https/github.com/spudly/config-config.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20config-config%20by%20%40spudly%20https%3A%2F%2Fgithub.com%2Fspudly%2Fconfig-config)
 <!-- prettier-ignore-end -->
 
-<!-- badges-end -->
-
 Configures all the configurations for you.
 
-Currently supported:
+## Features
+
+This package creates & maintains the following configurations:
 
 - package.json
-- commitlint
-- eslint
-- github actions
-- husky
-- jest
-- lint-staged
-- prettier
-- semantic-release
-- sort-package-json
-- typescript
+- README.md
+- LICENSE.md (ISC)
+- CONTRIBUTING.md
+- CODE_OF_CONDUCT.md
+  ([Contributor Covenant](https://www.contributor-covenant.org), version 2.0)
+- [commitlint](https://commitlint.js.org/) (conventional commits)
+- [eslint](https://eslint.org/) w/
+  [@spudly/eslint-config](https://www.npmjs.com/package/@spudly/eslint-config)
+- [github actions](https://github.com/features/actions)
+- [husky](https://github.com/typicode/husky)
+- [jest](https://jestjs.io/)
+- [lint-staged](https://github.com/okonet/lint-staged)
+- [prettier](https://prettier.io/)
+- [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
+- [sort-package-json](https://github.com/keithamus/sort-package-json#readme)
+- [typescript](https://www.typescriptlang.org/)
+- [codecov](https://www.codecov.io/)
+- [all-contributors](https://github.com/all-contributors/all-contributors)
 
-## Contributors ✨
-
-Thanks goes to these wonderful people
-([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
