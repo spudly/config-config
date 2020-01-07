@@ -6,7 +6,7 @@
   "author": "",
   "main": "build/index.js",
   "bin": {
-    "config-config": "config-config.js"
+    "config-config": "bin/config-config.js"
   },
   "scripts": {
     "build": "tsc",
