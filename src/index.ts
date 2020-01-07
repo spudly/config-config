@@ -82,7 +82,7 @@ export const hasPackageJson = (dir: string) =>
   existsSync(`${dir}/package.json`);
 
 const getGithubActionsConfig = (options: Options) => {
-  let yml = `name: Test & Publish
+  let yml = `name: build
 
 on: [push]
 
