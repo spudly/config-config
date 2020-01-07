@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/spudly/config-config/compare/v1.2.0...v1.2.1) (2020-01-07)
+
+
+### Bug Fixes
+
+* path to binary was wrong ([7dade2d](https://github.com/spudly/config-config/commit/7dade2d3c257cf64fe54f6cdcd4add06592be221))
+
 # [1.2.0](https://github.com/spudly/config-config/compare/v1.1.0...v1.2.0) (2020-01-06)
 
 
