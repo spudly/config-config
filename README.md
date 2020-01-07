@@ -42,6 +42,17 @@ This package creates & maintains the following configurations:
 - [codecov](https://www.codecov.io/)
 - [all-contributors](https://github.com/all-contributors/all-contributors)
 
+## Installation
+
+`npm install --save-dev @spudly/config-config`
+
+## Usage
+
+Just run `npx config-config`.
+
+After the first run, you should rarely have to manually run it again because it
+registers itself as a pre-commit hook.
+
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
