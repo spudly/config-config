@@ -1,8 +1,7 @@
-name: build
+import {Options, stage} from './utils';
+import {mkdirSync, writeFileSync} from 'fs';
 
-on: [push]
-
-jobs:
+const TEST_JOB = `
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -13,10 +12,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
-      - name: setup node ${{matrix.node-version }}
+      - name: setup node \${{matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: \${{ matrix.node-version }}
       - name: install
         run: npm ci
       - name: build
@@ -28,9 +27,10 @@ jobs:
       - name: codecov
         uses: codecov/codecov-action@v1
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
+          token: \${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true`;
 
+const RELEASE_JOB = `
   release:
     needs: test
     runs-on: ubuntu-latest
@@ -48,6 +48,21 @@ jobs:
         run: npm ci
       - name: release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}  
-        run: npx semantic-release
+          GITHUB_TOKEN: \${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: \${{ secrets.NPM_TOKEN }}  
+        run: npx semantic-release`;
+
+const configureGithubWorkflow = (options: Options) => {
+  const workflow = `name: build
+
+on: [push]
+
+jobs:${TEST_JOB}
+${options.semanticRelease ? RELEASE_JOB : ''}`;
+
+  mkdirSync(`${options.root}/.github/workflows`, {recursive: true});
+  writeFileSync(`${options.root}/.github/workflows/workflow.yml`, workflow);
+  stage(`${options.root}/.github/workflows/workflow.yml`, options);
+};
+
+export default configureGithubWorkflow;

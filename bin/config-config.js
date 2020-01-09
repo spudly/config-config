@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-const configure = require('../build').default;
+const configConfig = require('../build').default;
 
-configure();
+configConfig(process.cwd(), process.argv.slice(2));
