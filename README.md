@@ -2,10 +2,10 @@
 
 <!-- prettier-ignore-start -->
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spudly/config-config/build?style=flat-square)
-[![Codecov](https://img.shields.io/codecov/c/github/spudly/config-config)](https://codecov.io/gh/spudly/config-config)
+[![Codecov](https://img.shields.io/codecov/c/github/spudly/config-config?style=flat-square)](https://codecov.io/gh/spudly/config-config)
 [![version](https://img.shields.io/npm/v/@spudly/config-config.svg?style=flat-square)](https://www.npmjs.com/package/@spudly/config-config)
 [![downloads](https://img.shields.io/npm/dm/@spudly/config-config.svg?style=flat-square)](http://www.npmtrends.com/@spudly/config-config)
-[![NPM](https://img.shields.io/npm/l/@spudly/config-config)](https://github.com/spudly/config-config/blob/master/LICENSE.md)
+[![NPM](https://img.shields.io/npm/l/@spudly/config-config?style=flat-square)](https://github.com/spudly/config-config/blob/master/LICENSE.md)
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
