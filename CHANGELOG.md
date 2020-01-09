@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/spudly/config-config/compare/v1.2.1...v1.2.2) (2020-01-07)
+
+
+### Bug Fixes
+
+* prepare & include build files for npm package ([8ea41ca](https://github.com/spudly/config-config/commit/8ea41ca4fe7834c61ce85b4aaf148c70fb3e2d84))
+
 ## [1.2.1](https://github.com/spudly/config-config/compare/v1.2.0...v1.2.1) (2020-01-07)
 
 
