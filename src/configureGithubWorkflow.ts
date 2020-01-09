@@ -6,7 +6,7 @@ const TEST_JOB = `
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x, 12.x]
     env:
       CI: true
     steps:
