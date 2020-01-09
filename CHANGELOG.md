@@ -1,3 +1,22 @@
+# [2.0.0](https://github.com/spudly/config-config/compare/v1.2.2...v2.0.0) (2020-01-09)
+
+
+### Bug Fixes
+
+* **npm:** package-lock out of sync ([51ab5c8](https://github.com/spudly/config-config/commit/51ab5c8a44880121c91cb4526b3f2930884fe5e4))
+
+
+### chore
+
+* **workflow:** update node versions ([0afee66](https://github.com/spudly/config-config/commit/0afee6685c99e167a7db72842578628816c1050e))
+* **workflow:** update node versions ([193a7ef](https://github.com/spudly/config-config/commit/193a7ef38059704780b6c2d82f76eb6e03d96920))
+
+
+### BREAKING CHANGES
+
+* **workflow:** dropped support for NodeJS 8.x
+* **workflow:** dropped support for NodeJS 8.x
+
 ## [1.2.2](https://github.com/spudly/config-config/compare/v1.2.1...v1.2.2) (2020-01-07)
 
 
