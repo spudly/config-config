@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/spudly/config-config/compare/v2.0.0...v2.1.0) (2020-01-10)
+
+
+### Features
+
+* **readme:** configures badges for the readme ([302a87d](https://github.com/spudly/config-config/commit/302a87d0976f90177f906d9fe24c011ca2fdde65))
+
 # [2.0.0](https://github.com/spudly/config-config/compare/v1.2.2...v2.0.0) (2020-01-09)
 
 
