@@ -21,6 +21,8 @@ export type Options = {
   sortPackageJson: boolean;
   husky: boolean;
   lintStaged: boolean;
+  githubUsername: string | undefined;
+  repoName: string | undefined;
 };
 
 export const readJson = (file: string) =>
@@ -36,8 +38,18 @@ export const readPackageJson = (dir: string) => {
   }
 };
 
+export const getGithubInfo = (root: string) => {
+  const stdout = execSync(`git config --get remote.origin.url`, {
+    cwd: root,
+    encoding: 'utf-8',
+  });
+  const match = stdout.match(/github\.com:(.+)\/(.+)\.git/);
+  return {user: match?.[1], repo: match?.[2]};
+};
+
 export const getOptions = (root: string, args: Array<string>): Options => {
   const confRoot = resolve(__dirname, '..');
+  const {user, repo} = getGithubInfo(root);
   return {
     root,
     confRoot,
@@ -54,6 +66,8 @@ export const getOptions = (root: string, args: Array<string>): Options => {
     sortPackageJson: !args.includes('--no-sort-package-json'),
     husky: !args.includes('--no-husky'),
     lintStaged: !args.includes('--no-lint-staged'),
+    githubUsername: user,
+    repoName: repo,
   };
 };
 

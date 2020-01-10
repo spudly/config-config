@@ -1,5 +1,6 @@
 # @spudly/config-config
 
+<!-- config-config:badges-start -->
 <!-- prettier-ignore-start -->
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spudly/config-config/build?style=flat-square)
 [![Codecov](https://img.shields.io/codecov/c/github/spudly/config-config?style=flat-square)](https://codecov.io/gh/spudly/config-config)
@@ -13,8 +14,10 @@
 
 [![Watch on GitHub](https://img.shields.io/github/watchers/spudly/config-config.svg?style=social)](https://github.com/spudly/config-config/watchers)
 [![Star on GitHub](https://img.shields.io/github/stars/spudly/config-config.svg?style=social)](https://github.com/spudly/config-config/stargazers)
-[![Tweet](https://img.shields.io/twitter/url/https/github.com/spudly/config-config.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20config-config%20by%20%40spudly%20https%3A%2F%2Fgithub.com%2Fspudly%2Fconfig-config)
+[![Tweet](https://img.shields.io/twitter/url/https/github.com/spudly/config-config.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20config-config%20https%3A%2F%2Fgithub.com%2Fspudly%2Fconfig-config)
 <!-- prettier-ignore-end -->
+
+<!-- config-config:badges-end -->
 
 Configures all the configurations for you.
 

@@ -18,6 +18,9 @@ const setup = () => {
   const tmpObj = tmp.dirSync();
   const dir = tmpObj.name;
   execSync('git init', {cwd: dir});
+  execSync(`git remote add origin git@github.com:chucknorris/roundhouse.git`, {
+    cwd: dir,
+  });
   tmpObjs.push(tmpObj);
   fs.writeFileSync(
     `${dir}/package.json`,
@@ -250,8 +253,51 @@ describe('w/ no args', () => {
   });
 
   test('readme', () => {
-    expect(readFileSync(`${dir}/README.md`, 'utf8')).toMatchInlineSnapshot(
-      `"# test-test"`,
-    );
+    expect(readFileSync(`${dir}/README.md`, 'utf8')).toMatchInlineSnapshot(`
+      "# @spudly/config-config
+
+      <!-- config-config:badges-start -->
+      <!-- prettier-ignore-start -->
+      ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chucknorris/roundhouse/build?style=flat-square)
+      [![Codecov](https://img.shields.io/codecov/c/github/chucknorris/roundhouse?style=flat-square)](https://codecov.io/gh/chucknorris/roundhouse)
+      [![version](https://img.shields.io/npm/v/test-test.svg?style=flat-square)](https://www.npmjs.com/package/test-test)
+      [![downloads](https://img.shields.io/npm/dm/test-test.svg?style=flat-square)](http://www.npmtrends.com/test-test)
+      [![NPM](https://img.shields.io/npm/l/test-test?style=flat-square)](https://github.com/chucknorris/roundhouse/blob/master/LICENSE.md)
+
+      [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+      ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
+      [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/chucknorris/roundhouse/blob/master/CODE_OF_CONDUCT.md)
+
+      [![Watch on GitHub](https://img.shields.io/github/watchers/chucknorris/roundhouse.svg?style=social)](https://github.com/chucknorris/roundhouse/watchers)
+      [![Star on GitHub](https://img.shields.io/github/stars/chucknorris/roundhouse.svg?style=social)](https://github.com/chucknorris/roundhouse/stargazers)
+      [![Tweet](https://img.shields.io/twitter/url/https/github.com/chucknorris/roundhouse.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20roundhouse%20https%3A%2F%2Fgithub.com%2Fchucknorris%2Froundhouse)
+      <!-- prettier-ignore-end -->
+
+      <!-- config-config:badges-end -->
+
+      ## Features
+
+      <span style=\\"color: red\\">TODO: write this secion</span>
+
+      ## Installation
+
+      \`npm install --save-dev test-test\`
+
+      <span style=\\"color: red\\">TODO: write this secion</span>
+
+      ## Usage
+
+      <span style=\\"color: red\\">TODO: write this secion</span>
+
+      ## Contributors
+
+      <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+      <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+      This project follows the
+      [all-contributors](https://github.com/all-contributors/all-contributors)
+      specification. Contributions of any kind welcome!
+      "
+    `);
   });
 });
