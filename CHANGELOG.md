@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/spudly/config-config/compare/v2.1.1...v2.1.2) (2020-01-11)
+
+
+### Bug Fixes
+
+* **files:** include files needed for configuring packages (again) ([c156f93](https://github.com/spudly/config-config/commit/c156f93d8926562046cf93d75f5f5c909145a069))
+
 ## [2.1.1](https://github.com/spudly/config-config/compare/v2.1.0...v2.1.1) (2020-01-11)
 
 
