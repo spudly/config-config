@@ -1,4 +1,4 @@
-import {readPackageJson, Options, mergeDeep} from './utils';
+import {readPackageJson, Options, mergeDeep, unique} from './utils';
 import getPackageJsonScripts from './getPackageJsonScripts';
 import getDevDependencies from './getDevDependencies';
 import getLintStagedConfig from './getLintStagedConfig';
@@ -18,7 +18,7 @@ const getPackageJsonConfig = (options: Options) => {
     publishConfig: {
       access: 'public',
     },
-    files: ['build', 'bin'],
+    files: unique([...(oldConfig.files || []), 'build', 'bin']).sort(),
     eslintConfig: options.eslint ? getEslintConfig(options) : undefined,
     eslintIgnore: options.eslint ? getEslintIgnore(options) : undefined,
     'lint-staged': options.lintStaged

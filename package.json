@@ -5,8 +5,12 @@
   "license": "ISC",
   "author": "",
   "files": [
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "LICENSE.md",
+    "bin",
     "build",
-    "bin"
+    "tsconfig.json"
   ],
   "main": "build/index.js",
   "bin": {

@@ -79,8 +79,8 @@ describe('w/ no args', () => {
           "build",
         ],
         "files": Array [
-          "build",
           "bin",
+          "build",
         ],
         "husky": Object {
           "hooks": Object {

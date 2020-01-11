@@ -106,3 +106,5 @@ export const hasPackageJson = (dir: string) =>
 export const stage = (file: string, options: Options) => {
   execSync(`git add ${file}`, {cwd: options.root});
 };
+
+export const unique = <T>(array: Array<T>) => [...new Set(array)];
